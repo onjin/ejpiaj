@@ -1,0 +1,31 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import logging
+import sys
+
+import baker
+from ejpiaj.parsers import yaml_parser
+from ejpiaj.runner import console_runner
+
+
+@baker.command(
+    shortopts={
+        'debug': 'd',
+    },
+    params={
+        'debug': 'run debug mode',
+    }
+)
+def test(yaml_file, debug=False):
+    """
+    Run tests using yaml file
+    """
+
+    if debug:
+        logging.basicConfig(level=logging.DEBUG)
+    if yaml_file:
+        sys.exit(console_runner(yaml_parser(yaml_file)))
+
+if __name__ == '__main__':
+    baker.run()
