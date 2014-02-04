@@ -20,4 +20,12 @@ ejpiaj
 Features
 --------
 
-* TODO
+* test remote API with simple yaml files
+
+Install
+-------
+* pip install ejpiaj
+
+Simple usage
+------------
+ejpiaj-cli test github.yml
