@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import logging
-import re
 
 import requests
 from clint.textui import puts, colored
