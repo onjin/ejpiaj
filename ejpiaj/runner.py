@@ -57,15 +57,24 @@ def test_request(request, variables):
     local_variables = {}
     valid = True
 
+    # headers with applied variables
+    headers = _vars(request.get('headers', None), variables)
+
     # url params with applied variables
     url_params = _vars(request.get('url_params', None), variables)
+
+    # form params with applied variables
+    form_params = _vars(request.get('form_params', None), variables)
 
     # create body data for POST and PUT
     body = None
     if request['method'].lower() in ['post', 'put']:
-        body = request.get('body', None)
+        if form_params:
+            body = form_params
+        else:
+            body = request.get('body', None)
 
-    response = method(url, params=url_params, data=body)
+    response = method(url, params=url_params, data=body, headers=headers)
 
     # test assertions using registered extractors
     if request.get('assertions', None):
@@ -120,12 +129,10 @@ def _vars(obj, variables):
     if not obj:
         return
 
-    re_variable = re.compile('^{{.*}}$')
     if isinstance(obj, dict):
         for key, value in obj.items():
-            if re_variable.match(str(value)):
-                if value[2:-2] in variables.keys():
-                    obj[key] = variables[value[2:-2]]
+            for var_name, var_value in variables.items():
+                obj[key] = value.replace('{{%s}}' % var_name, var_value)
 
     if isinstance(obj, str):
         for name, value in variables.items():
