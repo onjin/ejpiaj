@@ -3,6 +3,11 @@
 History
 -------
 
+0.2.1 (2014-02-07)
+++++++++++++++++++
+
+* Fixed variables substitution if variable is None
+
 0.2.0 (2014-02-07)
 ++++++++++++++++++
 

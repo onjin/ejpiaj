@@ -132,11 +132,13 @@ def _vars(obj, variables):
     if isinstance(obj, dict):
         for key, value in obj.items():
             for var_name, var_value in variables.items():
-                obj[key] = value.replace('{{%s}}' % var_name, var_value)
+                if var_value is not None:
+                    obj[key] = value.replace('{{%s}}' % var_name, var_value)
 
     if isinstance(obj, str):
         for name, value in variables.items():
-            obj.replace('{{%s}}' % name, value)
+            if var_value is not None:
+                obj.replace('{{%s}}' % name, value)
 
     return obj
 
