@@ -31,3 +31,13 @@ def empty_assertion(value):
 @assertion('notempty')
 def notempty_assertion(value):
     return not empty_assertion(value)
+
+
+@assertion('contains')
+def contains_assertion(value, params):
+    return str(params) in str(value)
+
+
+@assertion('notcontains')
+def notcontains_assertion(value, params):
+    return not contains_assertion(value, params)

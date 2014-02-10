@@ -5,13 +5,14 @@ requests:
     url_params:
       q: django
       sort: stars
-      sort: desc
-    assertions:
-      response:
-        - 'status_code equals 200'
+      order: desc
     variables:
       json:
         total_count: count
         items.[0].full_name: first_element
         items.[1].full_name: second_element
-        items.[2].full_name: third_element
+    assertions:
+      response:
+        - 'status_code equals 200'
+      json:
+        - 'items.[0].full_name contains ango'

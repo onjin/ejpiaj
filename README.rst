@@ -15,7 +15,6 @@ ejpiaj
 ejpiaj
 
 * Free software: BSD license
-* Documentation: http://ejpiaj.rtfd.org.
 
 Features
 --------
@@ -28,4 +27,6 @@ Install
 
 Simple usage
 ------------
-ejpiaj-cli test github.yml
+Try it with sample [github.yml](github.yml) file:
+
+ * ejpiaj-cli test github.yml

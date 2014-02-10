@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
+import re
 
 import requests
 from clint.textui import puts, colored
@@ -48,7 +49,7 @@ def console_runner(suite, variables=None, debug=False):
 
 def test_request(request, variables):
     method = getattr(requests, request['method'].lower())
-    url = request['url']
+    url = _vars(request['url'], variables)
     url_params = None
 
     failed_assertions = []
@@ -75,11 +76,20 @@ def test_request(request, variables):
 
     response = method(url, params=url_params, data=body, headers=headers)
 
+    # extract variables from response using registered extractors
+    if request.get('variables', None):
+        for extractor_name, params in request.get('variables').items():
+            extractor = get_variables_extractor(extractor_name)
+            extractor_variables = extractor(response, params)
+            variables.update(extractor_variables)
+            local_variables.update(extractor_variables)
+
     # test assertions using registered extractors
     if request.get('assertions', None):
         for extractor_name, assertions in request.get('assertions').items():
             extractor = get_variables_extractor(extractor_name)
             for assertion in assertions:
+                assertion = _vars(assertion, variables)
                 if assertion.count(' '):
                     variable, term = assertion.split(' ', 1)
                 else:
@@ -91,14 +101,6 @@ def test_request(request, variables):
                 else:
                     failed_assertions.append(assertion)
                     valid = False
-
-    # extract variables from response using registered extractors
-    if request.get('variables', None):
-        for extractor_name, params in request.get('variables').items():
-            extractor = get_variables_extractor(extractor_name)
-            extractor_variables = extractor(response, params)
-            variables.update(extractor_variables)
-            local_variables.update(extractor_variables)
 
     return {
         'passed_assertions': passed_assertions,
@@ -132,12 +134,13 @@ def _vars(obj, variables):
         for key, value in obj.items():
             for var_name, var_value in variables.items():
                 if var_value is not None:
-                    obj[key] = value.replace('{{%s}}' % var_name, var_value)
+                    value = value.replace('{{%s}}' % var_name, var_value)
+                    obj[key] = value
 
     if isinstance(obj, str):
         for name, value in variables.items():
-            if var_value is not None:
-                obj.replace('{{%s}}' % name, value)
+            if value is not None:
+                obj = obj.replace('{{%s}}' % name, str(value))
 
     return obj
 
