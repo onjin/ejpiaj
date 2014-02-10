@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import logging
-import re
 
 import requests
 from clint.textui import puts, colored
@@ -21,7 +20,9 @@ def console_runner(suite, variables=None, debug=False):
                        ', V - extracted variables'))
     puts(colored.white('-' * 80))
 
-    for test_name, test in suite['requests'].items():
+    tests = suite['requests']
+    for test_name in sorted(suite['requests'].keys()):
+        test = tests[test_name]
         result = test_request(test, variables)
         logger.debug(result)
         if result['valid']:

@@ -3,6 +3,10 @@
 History
 -------
 
+0.2.3 (2014-02-10)
+++++++++++++++++++
+* Fixed tests order (alphabetical)
+
 0.2.2 (2014-02-10)
 ++++++++++++++++++
 * Fixed variable substiution for multi varaibles
