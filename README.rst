@@ -27,6 +27,6 @@ Install
 
 Simple usage
 ------------
-Try it with sample [github.yml](github.yml) file:
+Try it with sample file https://github.com/onjin/ejpiaj/blob/master/github.yml:
 
  * ejpiaj-cli test github.yml
