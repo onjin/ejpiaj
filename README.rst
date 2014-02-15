@@ -19,7 +19,7 @@ ejpiaj
 Features
 --------
 
-* test remote API with simple yaml files
+Test remote API with simple yaml files
 
 Install
 -------
