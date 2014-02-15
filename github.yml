@@ -9,10 +9,57 @@ requests:
     variables:
       json:
         total_count: count
-        items.[0].full_name: first_element
-        items.[1].full_name: second_element
+        items.[0].full_name: repo_name
     assertions:
       response:
         - 'status_code equals 200'
       json:
         - 'items.[0].full_name contains ango'
+
+  002_get_commits_from_first_repo:
+    method: get
+    url: https://api.github.com/repos/{{repo_name}}/commits
+    assertions:
+      response:
+        - 'status_code equals 200'
+    variables:
+      json:
+        '[0].sha': sha1
+        '[1].sha': sha2
+        '[2].sha': sha3
+
+  003_get_commit_1:
+    method: get
+    url: https://api.github.com/repos/{{repo_name}}/commits/{{sha1}}
+    assertions:
+      response:
+        - 'status_code equals 200'
+    variables:
+      json:
+        'commit.author.name': username
+        'commit.author.email': email
+        'commit.author.date': date
+
+  004_get_commit_2:
+    method: get
+    url: https://api.github.com/repos/{{repo_name}}/commits/{{sha2}}
+    assertions:
+      response:
+        - 'status_code equals 200'
+    variables:
+      json:
+        'commit.author.name': username
+        'commit.author.email': email
+        'commit.author.date': date
+
+  004_get_commit_3:
+    method: get
+    url: https://api.github.com/repos/{{repo_name}}/commits/{{sha3}}
+    assertions:
+      response:
+        - 'status_code equals 200'
+    variables:
+      json:
+        'commit.author.name': username
+        'commit.author.email': email
+        'commit.author.date': date
