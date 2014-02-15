@@ -36,7 +36,6 @@ setup(
         'clint',
         'baker',
         'pyyaml',
-        'bunch',
     ],
     license="BSD",
     zip_safe=False,
