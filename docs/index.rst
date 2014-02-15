@@ -14,6 +14,8 @@ Contents:
    readme
    installation
    usage
+   variables_extractors
+   assertions
    contributing
    authors
    history

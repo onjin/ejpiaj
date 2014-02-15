@@ -1,0 +1,24 @@
+requests:
+  001_search_repos_with_django_in_name:
+    method: get
+    url: https://api.github.com/search/repositories
+    url_params:
+      q: django
+      sort: stars
+      order: desc
+    variables:
+      json:
+        total_count: count
+        items.[0].full_name: repo_name
+    assertions:
+      response:
+        - 'status_code equals 200'
+      json:
+        - 'items.[0].full_name contains ango'
+
+  002_get_commits_from_first_repo:
+    method: get
+    url: https://api.github.com/repos/{{repo_name}}/commits
+    assertions:
+      response:
+        - 'status_code equals 200'
