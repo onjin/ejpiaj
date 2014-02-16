@@ -12,7 +12,8 @@ ejpiaj
         :target: https://crate.io/packages/ejpiaj?version=latest
 
 
-ejpiaj
+License
+-------
 
 * Free software: BSD license
 
@@ -21,12 +22,6 @@ Features
 
 Test remote API with simple yaml files
 
-Install
--------
-* pip install ejpiaj
-
-Simple usage
-------------
-Try it with sample file https://github.com/onjin/ejpiaj/blob/master/github.yml:
-
- * ejpiaj-cli test github.yml
+Documentation
+-------------
+* http://ejpiaj.readthedocs.org/en/latest/
