@@ -3,7 +3,6 @@ include CONTRIBUTING.rst
 include HISTORY.rst
 include LICENSE
 include *.txt
-include github.yml
 include .travis.yml
 include Makefile
 include tox.ini

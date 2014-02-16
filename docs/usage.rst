@@ -28,8 +28,8 @@ A ``--module`` option allows you to specify own module with custom ``assertions`
     $ ejpiaj-cli test ./myapi.yml --module my_module
 
 
-I will explain idea using example **github.yml** file:
- * https://github.com/onjin/ejpiaj/blob/master/github.yml
+I will explain idea using example **example_full.yml** file:
+ * https://github.com/onjin/ejpiaj/blob/master/examples/example_full.yml
 
 All requests are written under key *requests*. Every request has unique name. It's name is used to sort request while
 runing, so numeric prefix is very convinient.
@@ -213,6 +213,6 @@ Full example
 ------------
 
 Now you can could understand full example at file:
- * https://github.com/onjin/ejpiaj/blob/master/github.yml
+ * https://github.com/onjin/ejpiaj/blob/master/examples/example_full.yml
 
 
