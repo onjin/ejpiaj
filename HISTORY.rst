@@ -3,6 +3,11 @@
 History
 -------
 
+0.3.0 (2014-02-16)
+++++++++++++++++++
+* Added support to load own module with custom assertions and variable extractors
+  using ``ejpiaj-cli`` tool
+
 0.2.3 (2014-02-10)
 ++++++++++++++++++
 * Fixed tests order (alphabetical)

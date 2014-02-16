@@ -19,7 +19,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name='ejpiaj',
-    version='0.2.3',
+    version='0.3.0',
     description='ejpiaj',
     long_description=readme + '\n\n' + history,
     author='Marek Wywiał',

@@ -4,6 +4,30 @@ Usage
 
 Simple usage with **ejpiaj-cli**.
 
+A ``ejpiaj-cli`` tool has one command ``test``::
+
+    $ ejpiaj-cli test --help
+
+    Usage: ejpiaj-cli test <yaml_file> [<debug>] [<module>]
+
+    Run tests using yaml file
+
+    Required Arguments:
+
+      yaml_file
+
+    Options:
+
+       -d --debug   run with debug mode
+       -m --module  your module with custom extractors and assertions
+
+A ``yaml_file`` is file with tests. Debug mode (``-d``) displays logs and returns content from requests.
+
+A ``--module`` option allows you to specify own module with custom ``assertions`` and ``variables extractors``.  F.i.::
+
+    $ ejpiaj-cli test ./myapi.yml --module my_module
+
+
 I will explain idea using example **github.yml** file:
  * https://github.com/onjin/ejpiaj/blob/master/github.yml
 

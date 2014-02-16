@@ -18,3 +18,4 @@ recursive-include htmlcov *.js
 recursive-include htmlcov *.png
 recursive-include tests *.py
 include README.rst
+recursive-include examples *.yml

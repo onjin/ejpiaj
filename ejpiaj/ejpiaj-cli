@@ -12,15 +12,19 @@ from ejpiaj.runner import console_runner
 @baker.command(
     shortopts={
         'debug': 'd',
+        'module': 'm',
     },
     params={
-        'debug': 'run debug mode',
+        'debug': 'run with debug mode',
+        'module': 'your module with custom extractors and assertions',
     }
 )
-def test(yaml_file, debug=False):
+def test(yaml_file, debug=False, module=None):
     """
     Run tests using yaml file
     """
+    if module:
+        __import__(module)
 
     if debug:
         logging.basicConfig(level=logging.DEBUG)
