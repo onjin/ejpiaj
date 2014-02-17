@@ -2,7 +2,7 @@
 Usage
 ========
 
-Simple usage with **ejpiaj-cli**.
+Simple usage with ``ejpiaj-cli``.
 
 A ``ejpiaj-cli`` tool has one command ``test``::
 
@@ -28,7 +28,7 @@ A ``--module`` option allows you to specify own module with custom ``assertions`
     $ ejpiaj-cli test ./myapi.yml --module my_module
 
 
-I will explain idea using example **example_full.yml** file:
+I will explain idea using example ``example_full.yml`` file:
  * https://github.com/onjin/ejpiaj/blob/master/examples/example_full.yml
 
 All requests are written under key *requests*. Every request has unique name. It's name is used to sort request while
@@ -70,7 +70,7 @@ The result should be::
     ✓ 001_search_repos_with_django_in_name [P0,F0,V0] {}
     --------------------------------------------------------------------------------
 
-**P0** means 0 passed assertions, **F0** means 0 failed assertions, **V0** means 0 extracted variables
+``P0`` means 0 passed assertions, ``F0`` means 0 failed assertions, ``V0`` means 0 extracted variables
 
 Assertions
 ----------
@@ -108,7 +108,7 @@ Under this key we put list of assertions in format::
 
     variable assertions parameter
 
-**variables** is variable extractor parameter, **assertion** is assertion keyword and **parameter** is optional
+``variables`` is variable extractor parameter, ``assertion`` is assertion keyword and ``parameter`` is optional
 parameter for assertion (depends on assertion type)
 
 In this example we used *response* extractor::
@@ -186,7 +186,7 @@ The result should be::
     --------------------------------------------------------------------------------
 
 
-We simply added **variables** key and used same variable extractor as in *assertions*::
+We simply added ``variables`` key and used same variable extractor as in *assertions*::
 
     variables:
       json:

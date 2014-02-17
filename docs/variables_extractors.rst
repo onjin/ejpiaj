@@ -6,7 +6,10 @@ Variables extractors are used to extract variables for assertions or to store th
 Builtin variables extractors
 ----------------------------
 
-There are two builtin extractors. First one **response** which give you access to attributes of response objects:
+response
+^^^^^^^^
+
+A ``response`` variables extractor gives you access to attributes of response objects:
  * http://requests.readthedocs.org/en/latest/user/advanced/#request-and-response-objects
 
 Usage::
@@ -19,7 +22,10 @@ Usage::
       response:
         - 'status_code equals 200'
 
-The second one is **json** extractor which tries treat response content as json. You can access json body using python dictionary syntax.
+json
+^^^^
+
+An ``json`` extractor treats response content as json. You can access json body using python dictionary syntax.
 
 Usage::
 
@@ -74,6 +80,12 @@ You can easily create your own extractors by creating python file with code::
                 result[name] = None
         return result
 
-From now you can use ``json2`` variables extractor in your tests by running ``ejpiaj-cli`` with your module::
+From now you can use ``json2`` variables extractor in your tests::
+
+    variables:
+      json2:
+        myvar: varname
+
+by running ``ejpiaj-cli`` with your module::
 
     $ ejpiaj-cli test --module myfile mytest.yml

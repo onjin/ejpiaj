@@ -7,7 +7,8 @@ Builtin assertions
 ------------------
 
 
-### equals / notequals
+equals / notequals
+^^^^^^^^^^^^^^^^^^
 
 Example::
 
@@ -16,7 +17,8 @@ Example::
         - 'status_code equals 200'
         - 'status_code notequals 500'
 
-### in / notin
+in / notin
+^^^^^^^^^^
 
 Example::
 
@@ -25,7 +27,8 @@ Example::
         - 'status_code in 200,301,302'
         - 'status_code notin 404,500'
 
-## empty / notempty
+empty / notempty
+^^^^^^^^^^^^^^^^
 
 Example::
 
@@ -34,7 +37,8 @@ Example::
         - 'contentText empty'
         - 'contentText notempty'
 
-## contains / notcontains
+contains / notcontains
+^^^^^^^^^^^^^^^^^^^^^^
 
 Example::
 
@@ -51,7 +55,17 @@ You can easily create your own assertions::
 
     from ejpiaj.decorators import assertion
 
-    @assertion('equals')
-    def equals_assertion(value, params):
-        return str(value) == str(params)
+    @assertion('false')
+    def equals_assertion(value):
+        return value == False
 
+
+From now you can use ``false`` assertion in your tests::
+
+    assertions:
+      response:
+        - 'status_code false'
+
+by running ``ejpiaj-cli`` with your module::
+
+    $ ejpiaj-cli test --module myfile mytest.yml
