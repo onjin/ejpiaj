@@ -88,4 +88,4 @@ From now you can use ``json2`` variables extractor in your tests::
 
 by running ``ejpiaj-cli`` with your module::
 
-    $ ejpiaj-cli test --module myfile mytest.yml
+    $ ejpiaj-cli test -s --module myfile mytest.yml

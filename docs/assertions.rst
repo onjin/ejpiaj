@@ -68,4 +68,4 @@ From now you can use ``false`` assertion in your tests::
 
 by running ``ejpiaj-cli`` with your module::
 
-    $ ejpiaj-cli test --module myfile mytest.yml
+    $ ejpiaj-cli test -s --module myfile mytest.yml

@@ -8,7 +8,7 @@ A ``ejpiaj-cli`` tool has one command ``test``::
 
     $ ejpiaj-cli test --help
 
-    Usage: ejpiaj-cli test <yaml_file> [<debug>] [<module>]
+    Usage: ejpiaj-cli test <yaml_file> [<debug>] [<module>] [<display_variables>]
 
     Run tests using yaml file
 
@@ -19,13 +19,14 @@ A ``ejpiaj-cli`` tool has one command ``test``::
     Options:
 
        -d --debug   run with debug mode
+       -s --display_variables  display extracted variables
        -m --module  your module with custom extractors and assertions
 
 A ``yaml_file`` is file with tests. Debug mode (``-d``) displays logs and returns content from requests.
 
 A ``--module`` option allows you to specify own module with custom ``assertions`` and ``variables extractors``.  F.i.::
 
-    $ ejpiaj-cli test ./myapi.yml --module my_module
+    $ ejpiaj-cli test ./myapi.yml --module my_module -s
 
 
 I will explain idea using example ``example_full.yml`` file:
@@ -60,7 +61,7 @@ First example::
 
 Run it with::
 
-    ejpiaj-cli test examples/example_001.yml
+    ejpiaj-cli test -s examples/example_001.yml
 
 The result should be::
 
@@ -93,7 +94,7 @@ Now we are going to add first assertions::
 
 Run it with::
 
-    ejpiaj-cli test examples/example_002.yml
+    ejpiaj-cli test -s examples/example_002.yml
 
 The result should be::
 
@@ -174,7 +175,7 @@ Extracting and using variables::
 
 Run it with::
 
-    ejpiaj-cli test examples/example_003.yml
+    ejpiaj-cli test -s examples/example_003.yml
 
 The result should be::
 

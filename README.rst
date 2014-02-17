@@ -20,7 +20,39 @@ License
 Features
 --------
 
-Test remote API with simple yaml files
+ * describe your API requests in single file (YAML at this moment)
+ * extract variables from responses and store them to use in next requests (f.i. to get and use authorization token)
+ * write assertions agains responses
+ * register your own variables extractors and assertions
+ * run suite using ``ejpiaj-cli test -m my_addons -s tests.yml`` command
+
+Sample yml file::
+
+    requests:
+      001_search_repos_with_django_in_name:
+        method: get
+        url: https://api.github.com/search/repositories
+        url_params:
+          q: django
+          sort: stars
+          order: desc
+        variables:
+          json:
+            total_count: count
+            items.[0].full_name: repo_name
+        assertions:
+          response:
+            - 'status_code equals 200'
+          json:
+            - 'items.[0].full_name contains ango'
+
+      002_get_commits_from_first_repo:
+        method: get
+        url: https://api.github.com/repos/{{repo_name}}/commits
+        assertions:
+          response:
+            - 'status_code equals 200'
+
 
 Documentation
 -------------

@@ -8,7 +8,8 @@ from clint.textui import puts, colored
 from .registry import get_variables_extractor, get_assertion
 
 
-def console_runner(suite, variables=None, debug=False):
+def console_runner(suite, variables=None, debug=False,
+                   display_variables=False):
     logger = logging.getLogger(__name__)
     failed_counter = 0
 
@@ -32,9 +33,10 @@ def console_runner(suite, variables=None, debug=False):
                 len(result['failed_assertions']),
                 len(result['variables']),
             )
-            puts(colored.green(
-                "✓ " + test_name + " " + str(result['variables'])
-            ))
+            line = "✓ " + test_name
+            if display_variables:
+                line += " " + str(result['variables'])
+            puts(colored.green(line))
         else:
             failed_counter += 1
             puts(colored.red(

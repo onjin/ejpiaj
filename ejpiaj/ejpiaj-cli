@@ -14,13 +14,15 @@ from ejpiaj.runner import console_runner
     shortopts={
         'debug': 'd',
         'module': 'm',
+        'display_variables': 's',
     },
     params={
         'debug': 'run with debug mode',
         'module': 'your module with custom extractors and assertions',
+        'display_variables': 'display extracted variables',
     }
 )
-def test(yaml_file, debug=False, module=None):
+def test(yaml_file, debug=False, module=None, display_variables=False):
     """
     Run tests using yaml file
     """
@@ -31,7 +33,9 @@ def test(yaml_file, debug=False, module=None):
     if debug:
         logging.basicConfig(level=logging.DEBUG)
     if yaml_file:
-        sys.exit(console_runner(yaml_parser(yaml_file)))
+        sys.exit(console_runner(
+            yaml_parser(yaml_file), display_variables=display_variables
+        ))
 
 if __name__ == '__main__':
     baker.run()

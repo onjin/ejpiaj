@@ -3,6 +3,10 @@
 History
 -------
 
+0.3.2 (2014-02-17)
+++++++++++++++++++
+* Added -s option to ``ejpiaj-cli`` to display extracted variables
+
 0.3.1 (2014-02-17)
 ++++++++++++++++++
 * Fixed loading custom module from current directory
