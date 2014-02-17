@@ -16,6 +16,7 @@ Contents:
    usage
    variables_extractors
    assertions
+   ejpiaj
    contributing
    authors
    history
