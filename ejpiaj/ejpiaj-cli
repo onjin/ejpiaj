@@ -3,6 +3,7 @@
 
 import logging
 import sys
+import os
 
 import baker
 from ejpiaj.parsers import yaml_parser
@@ -24,6 +25,7 @@ def test(yaml_file, debug=False, module=None):
     Run tests using yaml file
     """
     if module:
+        sys.path.append(os.getcwd())
         __import__(module)
 
     if debug:

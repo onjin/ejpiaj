@@ -3,7 +3,7 @@
 
 __author__ = 'Marek Wywiał'
 __email__ = 'onjinx@gmail.com'
-__version__ = '0.3.0'
+__version__ = '0.3.1'
 
 from .variable_extractor import json_variables_extractor
 from .assertions import (

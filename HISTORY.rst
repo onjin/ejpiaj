@@ -3,6 +3,10 @@
 History
 -------
 
+0.3.1 (2014-02-17)
+++++++++++++++++++
+* Fixed loading custom module from current directory
+
 0.3.0 (2014-02-16)
 ++++++++++++++++++
 * Added support to load own module with custom assertions and variable extractors

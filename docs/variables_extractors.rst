@@ -36,7 +36,7 @@ Usage::
 Custom variables extractors
 ---------------------------
 
-You can easily create your own extractors::
+You can easily create your own extractors by creating python file with code::
 
     import re
 
@@ -45,8 +45,8 @@ You can easily create your own extractors::
     from ejpiaj.decorators import variable_extractor
 
 
-    @variable_extractor('json')
-    def json_variables_extractor(response, variables):
+    @variable_extractor('json2')
+    def json2_variables_extractor(response, variables):
         """Extracts variables from json response.content.
 
         Variables path are written using 'dot' access and index access to lists
@@ -73,3 +73,7 @@ You can easily create your own extractors::
             except:
                 result[name] = None
         return result
+
+From now you can use ``json2`` variables extractor in your tests by running ``ejpiaj-cli`` with your module::
+
+    $ ejpiaj-cli test --module myfile mytest.yml
