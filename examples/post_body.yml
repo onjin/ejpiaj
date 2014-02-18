@@ -1,0 +1,16 @@
+requests:
+  001_token_post:
+    method: post
+    url: https://example.com/webapi/v1/token
+    headers: ~
+    url_params: 
+      lang: pl
+    form_params: ~
+    body: '{"username":"user", "password":"bestpass"}'
+
+    assertions:
+      response:
+        - 'status_code in 200'
+    variables:
+      json:
+        token: token

@@ -1,5 +1,5 @@
-ejpiaj
-======
+Module ejpiaj
+=============
 
 .. toctree::
    :maxdepth: 4

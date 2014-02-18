@@ -16,6 +16,7 @@ Contents:
    usage
    variables_extractors
    assertions
+   examples
    modules
    contributing
    authors
