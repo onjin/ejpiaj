@@ -141,8 +141,8 @@ So we told *json* extractor to get *items.[0].full_name* from response::
 
 and check if the *full_name* contains word *ango*
 
-Variables exctracting
----------------------
+Variables extracting
+--------------------
 
 We can use variables extractors to extract and store variables for further usage in next requests.
 
