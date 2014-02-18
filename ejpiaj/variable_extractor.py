@@ -36,7 +36,7 @@ def json_variables_extractor(response, variables):
 
 
 @variable_extractor('response')
-def response_variable_extractor(response, variables):
+def response_variables_extractor(response, variables):
     result = {}
     re_list = re.compile('^\[\d+\]$')
     for path, name in variables.items():
@@ -48,7 +48,10 @@ def response_variable_extractor(response, variables):
                     ind = int(attr[1:-1])
                     subdata = subdata[ind]
                 else:
-                    subdata = getattr(subdata, attr)
+                    if isinstance(subdata, dict):
+                        subdata = subdata.get(attr)
+                    else:
+                        subdata = getattr(subdata, attr)
             result[name] = subdata
         except:
             result[name] = None

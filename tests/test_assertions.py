@@ -1,6 +1,6 @@
 import unittest
 
-from ejpiaj.runner import check_assertion
+from ejpiaj.core import check_assertion
 
 
 class Response(object):
