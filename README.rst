@@ -53,6 +53,18 @@ Sample yml file::
           response:
             - 'status_code equals 200'
 
+Run it::
+
+    $ ejpiaj-cli test sample.yml -s
+
+    --------------------------------------------------------------------------------
+    P - passed assertions, F - failed assertions, V - extracted variables
+    --------------------------------------------------------------------------------
+    ✓ 001_search_repos_with_django_in_name [P2,F0,V2] {'count': 29754, 'repo_name': u'django/django'}
+    ✓ 002_get_commits_from_first_repo [P1,F0,V0] {}
+    --------------------------------------------------------------------------------
+
+
 
 Documentation
 -------------
