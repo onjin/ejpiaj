@@ -11,6 +11,10 @@ ejpiaj
 .. image:: https://pypip.in/d/ejpiaj/badge.png
         :target: https://pypi.python.org/pypi/ejpiaj
 
+.. image:: https://pypip.in/license/ejpiaj/badge.png
+
+
+
 
 License
 -------
