@@ -9,7 +9,7 @@ ejpiaj
         :target: https://travis-ci.org/onjin/ejpiaj
 
 .. image:: https://pypip.in/d/ejpiaj/badge.png
-        :target: https://crate.io/packages/ejpiaj?version=latest
+        :target: https://pypi.python.org/pypi/ejpiaj
 
 
 License
