@@ -68,6 +68,15 @@ Run it::
     ✓ 002_get_commits_from_first_repo [P1,F0,V0] {}
     --------------------------------------------------------------------------------
 
+SNI note
+--------
+In order to support `SNI`_ in python 2.6/2.7 you need to install additional packages:
+
+* `pyOpenSSL`, a Python wrapper module around the OpenSSL library.
+* `ndg-httpsclient`, enhanced HTTPS support for httplib and urllib2.
+* `pyasn1`, ASN.1 types and codecs.
+
+.. _`SNI`: http://en.wikipedia.org/wiki/Server_Name_Indication
 
 
 Documentation
