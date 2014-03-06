@@ -3,6 +3,10 @@
 History
 -------
 
+0.3.3 (2014-03-06)
+* Added -e / --env option to ``ejpiaj-cli`` to pass initial variables
+* Added -q / --quiet option to ``ejpiaj-cli`` to quiet output
+
 0.3.2 (2014-02-17)
 ++++++++++++++++++
 * Added -s option to ``ejpiaj-cli`` to display extracted variables

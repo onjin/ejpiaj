@@ -13,11 +13,13 @@ from ejpiaj.runner import console_runner
 @baker.command(
     shortopts={
         'debug': 'd',
+        'env': 'e',
         'module': 'm',
         'display_variables': 's',
         'quiet': 'q',
     },
     params={
+        'env': 'initial variables',
         'quiet': 'do not display any information',
         'debug': 'run with debug mode',
         'module': 'your module with custom extractors and assertions',
@@ -25,10 +27,11 @@ from ejpiaj.runner import console_runner
     }
 )
 def test(yaml_file, debug=False, module=None, display_variables=False,
-         quiet=False):
+         quiet=False, env=None):
     """
     Run tests using yaml file
     """
+    variables = env_line_to_dict(env) if env else {}
     if module:
         sys.path.append(os.getcwd())
         __import__(module)
@@ -38,8 +41,17 @@ def test(yaml_file, debug=False, module=None, display_variables=False,
     if yaml_file:
         sys.exit(console_runner(
             yaml_parser(yaml_file), display_variables=display_variables,
-            quiet=quiet
+            quiet=quiet, variables=variables
         ))
+
+def env_line_to_dict(line):
+    variables = {}
+    for var_line in line.split('&'):
+        split = var_line.split('=')
+        variables.update({split[0]:split[1]})
+
+    return variables
+
 
 if __name__ == '__main__':
     baker.run()

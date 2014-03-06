@@ -109,3 +109,6 @@ class TestResponseVariablesExtractor(unittest.TestCase):
         self.assertEqual(result['target1'], 'val1')
         self.assertEqual(result['target2'], 'val2')
         self.assertEqual(result['target3'], 'val3')
+
+if __name__ == '__main__':
+    unittest.main()

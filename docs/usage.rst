@@ -21,12 +21,25 @@ A ``ejpiaj-cli`` tool has one command ``test``::
        -d --debug   run with debug mode
        -s --display_variables  display extracted variables
        -m --module  your module with custom extractors and assertions
+       -e --env     initial variables in format var1=val1&var2=val2
 
 A ``yaml_file`` is file with tests. Debug mode (``-d``) displays logs and returns content from requests.
 
 A ``--module`` option allows you to specify own module with custom ``assertions`` and ``variables extractors``.  F.i.::
 
     $ ejpiaj-cli test ./myapi.yml --module my_module -s
+
+
+A ``-e`` allows you to pass initial variables f.i.::
+
+    $ ejpiaj-cli test ./myapi.yml --module my_module -s -e api_url=localhost
+
+And use this variable in ``yml`` file::
+
+    requests:
+      001_get_token:
+        method: post
+        url: http://{{api_url}}/api/v10/api-token-auth/
 
 
 I will explain idea using example ``example_full.yml`` file:

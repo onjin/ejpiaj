@@ -45,3 +45,6 @@ class TestAssertions(unittest.TestCase):
         self.assertFalse(check_assertion('notin 1,2,3,4', '4'))
         self.assertTrue(check_assertion('notin 1,2,3,4', 6))
         self.assertTrue(check_assertion('notin 1,2,3,4', '6'))
+
+if __name__ == '__main__':
+    unittest.main()
