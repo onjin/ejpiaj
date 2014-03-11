@@ -24,7 +24,9 @@ License
 Features
 --------
 
- * describe your API requests in single file (YAML at this moment)
+ * describe your API requests in single file (YAML, JSON and XML at this moment) so you can store you API tests with code
+   in same repository (f.i. as ejpiaj.json file)
+ * file format is detected from file extension ``.yml``, ``.json`` and ``.xml``
  * extract variables from responses and store them to use in next requests (f.i. to get and use authorization token)
  * write assertions agains responses
  * register your own variables extractors and assertions

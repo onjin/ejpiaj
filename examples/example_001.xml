@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <requests>
+        <t001_search_repos_with_django_in_name>
+            <method>get</method>
+            <url>https://api.github.com/search/repositories</url>
+            <url_params>
+                <q>django</q>
+                <sort>stars</sort>
+                <order>desc</order>
+            </url_params>
+        </t001_search_repos_with_django_in_name>
+    </requests>

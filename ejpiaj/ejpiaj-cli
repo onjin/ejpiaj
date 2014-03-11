@@ -6,8 +6,14 @@ import sys
 import os
 
 import baker
-from ejpiaj.parsers import yaml_parser
+from ejpiaj.parsers import yaml_parser, json_parser, xml_parser
 from ejpiaj.runner import console_runner
+
+PARSERS = {
+    'json': json_parser,
+    'yml': yaml_parser,
+    'xml': xml_parser,
+}
 
 
 @baker.command(
@@ -26,7 +32,7 @@ from ejpiaj.runner import console_runner
         'display_variables': 'display extracted variables',
     }
 )
-def test(yaml_file, debug=False, module=None, display_variables=False,
+def test(filename, debug=False, module=None, display_variables=False,
          quiet=False, env=None):
     """
     Run tests using yaml file
@@ -38,9 +44,12 @@ def test(yaml_file, debug=False, module=None, display_variables=False,
 
     if debug:
         logging.basicConfig(level=logging.DEBUG)
-    if yaml_file:
+
+    if filename:
+        # detect parser using filename extension, and use yml if not found
+        parser = PARSERS.get(filename.split('.')[-1], 'yml')
         sys.exit(console_runner(
-            yaml_parser(yaml_file), display_variables=display_variables,
+            parser(filename), display_variables=display_variables,
             quiet=quiet, variables=variables
         ))
 

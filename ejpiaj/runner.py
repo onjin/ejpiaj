@@ -27,14 +27,14 @@ def console_runner(suite, variables=None, debug=False,
         result = test_request(test, variables)
         logger.debug(result)
         if result['valid']:
-            test_name = "%s [P%d,F%d,V%d]" % (
+            test_name = u"%s [P%d,F%d,V%d]" % (
                 test_name,
                 len(result['passed_assertions']),
                 len(result['failed_assertions']),
                 len(result['variables']),
             )
             if not quiet:
-                line = "✓ " + test_name
+                line = u"✓ " + test_name
                 if display_variables:
                     line += " " + str(result['variables'])
                 puts(colored.green(line))
@@ -42,9 +42,9 @@ def console_runner(suite, variables=None, debug=False,
             failed_counter += 1
             if not quiet:
                 puts(colored.red(
-                    "✗ " + test_name +
-                    " (" +
-                    " ∥ ".join(result['failed_assertions']) + ")"
+                    u"✗ " + test_name +
+                    u" (" +
+                    u" ∥ ".join(result['failed_assertions']) + ")"
                 ))
 
     if not quiet:

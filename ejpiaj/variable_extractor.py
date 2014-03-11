@@ -11,6 +11,7 @@ def json_variables_extractor(response, variables):
 
     Variables path are written using 'dot' access and index access to lists
     f.i.:
+
         some.path.to.list.[0]
         [1].dict.access.later
     """

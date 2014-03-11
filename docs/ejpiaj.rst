@@ -12,6 +12,14 @@ ejpiaj.assertions module
     :undoc-members:
     :show-inheritance:
 
+ejpiaj.core module
+------------------
+
+.. automodule:: ejpiaj.core
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 ejpiaj.decorators module
 ------------------------
 

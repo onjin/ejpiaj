@@ -19,7 +19,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name='ejpiaj',
-    version='0.3.3',
+    version='0.4.0',
     description='ejpiaj',
     long_description=readme + '\n\n' + history,
     author='Marek Wywiał',
@@ -32,7 +32,7 @@ setup(
     include_package_data=True,
     install_requires=[
         'requests',
-        'simplejson',
+        'xmltodict',
         'clint',
         'baker',
         'pyyaml',

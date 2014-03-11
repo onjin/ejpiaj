@@ -3,6 +3,10 @@
 History
 -------
 
+0.4.0 (2014-03-11)
+++++++++++++++++++
+* Added support for xml and json files
+
 0.3.3 (2014-03-06)
 ++++++++++++++++++
 * Added -e / --env option to ``ejpiaj-cli`` to pass initial variables
