@@ -10,11 +10,6 @@ recursive-include docs *.bat
 recursive-include docs *.py
 recursive-include docs *.rst
 recursive-include docs Makefile
-recursive-include htmlcov *.css
-recursive-include htmlcov *.dat
-recursive-include htmlcov *.html
-recursive-include htmlcov *.js
-recursive-include htmlcov *.png
 recursive-include tests *.py
 include README.rst
 recursive-include examples *.yml

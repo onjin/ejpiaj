@@ -1,4 +1,5 @@
 import requests
+import six
 
 from .registry import get_variables_extractor, get_assertion
 
@@ -92,7 +93,7 @@ def _vars(obj, variables):
                 if var_value is not None:
                     value = value.replace(
                         '{{%s}}' % var_name,
-                        unicode(var_value)
+                        six.u(var_value)
                     )
                     obj[key] = value
 
