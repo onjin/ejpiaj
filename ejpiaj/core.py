@@ -90,8 +90,16 @@ def _vars(obj, variables):
         for key, value in obj.items():
             for var_name, var_value in variables.items():
                 if var_value is not None:
-                    value = value.replace('{{%s}}' % var_name, var_value)
-                    obj[key] = value
+                    value = value.replace(
+                        '{{%s}}' % var_name,
+                        unicode(var_value)
+                    )
+                    new_key = key.replace(
+                        '{{%s}}' % var_name,
+                        unicode(var_value)
+                    )
+            obj[new_key] = value
+            del obj[key]
 
     if isinstance(obj, str):
         for name, value in variables.items():

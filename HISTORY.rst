@@ -3,6 +3,10 @@
 History
 -------
 
+0.4.1 (2014-09-10)
+++++++++++++++++++
+* Fixed non unicode extracted variables
+
 0.4.0 (2014-03-11)
 ++++++++++++++++++
 * Added support for xml and json files
