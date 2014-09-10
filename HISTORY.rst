@@ -3,6 +3,10 @@
 History
 -------
 
+0.4.2 (2014-09-10)
+++++++++++++++++++
+* Fixed context replacing at variables replacing
+
 0.4.1 (2014-09-10)
 ++++++++++++++++++
 * Fixed non unicode extracted variables

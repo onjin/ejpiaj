@@ -94,12 +94,7 @@ def _vars(obj, variables):
                         '{{%s}}' % var_name,
                         unicode(var_value)
                     )
-                    new_key = key.replace(
-                        '{{%s}}' % var_name,
-                        unicode(var_value)
-                    )
-            obj[new_key] = value
-            del obj[key]
+                    obj[key] = value
 
     if isinstance(obj, str):
         for name, value in variables.items():

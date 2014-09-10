@@ -10,11 +10,48 @@ class TestCore(unittest.TestCase):
             _vars('{{var}}', {'var': 1}),
             '1'
         )
-        self.assertEquals(
-            _vars({'{{key}}': '{{var}}'}, {'var': 1, 'key': 2}),
-            {'2': '1'}
-        )
 
+        # check original context not changed
+        params = {
+            'client_secret': 'my_secret',
+            'grant_type': 'client_credentials',
+            'client_id': 'my_id'
+        }
+        variables = {
+            'url': 'http://127.0.0.1:5000',
+        }
+        self.assertEquals(
+            _vars(params, variables),
+            {
+                'client_secret': 'my_secret',
+                'grant_type': 'client_credentials',
+                'client_id': 'my_id'
+            }
+        )
+        self.assertEquals(params, {
+            'client_secret': 'my_secret',
+            'grant_type': 'client_credentials',
+            'client_id': 'my_id'
+        })
+
+        # check vars extraction
+        params = {
+            'client_secret': 'my_secret',
+            'grant_type': 'client_credentials',
+            'client_id': '{{my_id}}'
+        }
+        variables = {
+            'url': 'http://127.0.0.1:5000',
+            'my_id': 'client_id',
+        }
+        self.assertEquals(
+            _vars(params, variables),
+            {
+                'client_secret': 'my_secret',
+                'grant_type': 'client_credentials',
+                'client_id': 'client_id'
+            }
+        )
 
 if __name__ == '__main__':
     unittest.main()
