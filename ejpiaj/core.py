@@ -91,9 +91,13 @@ def _vars(obj, variables):
         for key, value in obj.items():
             for var_name, var_value in variables.items():
                 if var_value is not None:
+                    if isinstance(var_value, int):
+                        var_value = str(var_value)
+                    if isinstance(var_value, str):
+                        var_value = six.u(var_value)
                     value = value.replace(
                         '{{%s}}' % var_name,
-                        six.u(var_value)
+                        var_value
                     )
                     obj[key] = value
 

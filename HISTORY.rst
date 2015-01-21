@@ -3,6 +3,10 @@
 History
 -------
 
+0.4.4 (2015-01-21)
+++++++++++++++++++
+* Fixed unicode errors while reading str/int parameters
+
 0.4.3 (2014-09-10)
 ++++++++++++++++++
 * Fixed compatibility with python 3.3
