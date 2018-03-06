@@ -8,10 +8,10 @@ ejpiaj
 .. image:: https://travis-ci.org/onjin/ejpiaj.png?branch=master
         :target: https://travis-ci.org/onjin/ejpiaj
 
-.. image:: https://pypip.in/d/ejpiaj/badge.png
+.. image:: https://img.shields.io/pypi/dm/ejpiaj.svg
         :target: https://pypi.python.org/pypi/ejpiaj
 
-.. image:: https://pypip.in/license/ejpiaj/badge.png
+.. image:: https://img.shields.io/pypi/l/ejpiaj.svg
 
 
 
